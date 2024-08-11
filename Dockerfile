@@ -8,8 +8,8 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 COPY Pipfile Pipfile.lock ./
-RUN python -m pip install --upgrade --progress-bar off pip
-RUN pip install  --progress-bar off pipenv && pipenv install --dev --system --deploy  --progress-bar off
+RUN python -m pip install --upgrade  pip --progress-bar off
+RUN pip install --progress-bar off pipenv && pipenv install --dev --system --progress-bar off
 
 WORKDIR /app
 COPY . /app

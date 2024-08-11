@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED=1
 
 COPY Pipfile Pipfile.lock ./
 RUN python -m pip install --upgrade  pip --progress-bar off
-RUN pip install --progress-bar off pipenv && pipenv install --dev --system --progress-bar off
+RUN pip install --progress-bar off pipenv && pipenv install --dev  --progress-bar off
 
 WORKDIR /app
 COPY . /app
@@ -20,5 +20,3 @@ RUN apt-get update && apt-get install -y wget unzip && \
     rm google-chrome-stable_current_amd64.deb && \
     apt-get clean
 CMD ["python","main.py"]
-
-

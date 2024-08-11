@@ -9,7 +9,7 @@ ENV PYTHONUNBUFFERED=1
 
 COPY Pipfile Pipfile.lock ./
 RUN python -m pip install --upgrade pip
-RUN pip install pipenv && pipenv install --dev --system --deploy
+RUN pip install  --progress-bar off pipenv && pipenv install --dev --system --deploy  --progress-bar off
 
 WORKDIR /app
 COPY . /app

@@ -1,4 +1,4 @@
-FROM python:3.10
+FROM python:3.10-slim
 
 ENV VAR1=10
 
@@ -13,11 +13,12 @@ RUN python -m pip install --upgrade  pip --progress-bar off
 # RUN pip install --progress-bar off pipenv && pipenv install --dev  --progress-bar off
 RUN pip install -r req.txt --progress-bar off
 
-RUN apt-get update && apt-get install -y wget unzip && \
-    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
-    apt install -y •/google-chrome-stable_current_amd64. deb && \
-    rm google-chrome-stable_current_amd64.deb && \
-    apt-get clean
+RUN apt-get update
+RUN apt-get install -y wget unzip 
+RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
+RUN apt install -y •/google-chrome-stable_current_amd64. deb 
+RUN rm google-chrome-stable_current_amd64.deb
+RUN apt-get clean
 
 WORKDIR /app
 COPY . /app

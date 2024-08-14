@@ -8,7 +8,7 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
 # COPY Pipfile Pipfile.lock ./
-COPY requirements.txt
+COPY req.txt .
 RUN python -m pip install --upgrade  pip --progress-bar off
 # RUN pip install --progress-bar off pipenv && pipenv install --dev  --progress-bar off
 RUN pip install -r requirements.txt --progress-bar off

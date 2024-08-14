@@ -10,7 +10,7 @@ from bs4 import BeautifulSoup
 def initialize_driver():
     options = webdriver.ChromeOptions()
     options.add_experimental_option("detach", True)
-    # options.add_argument("--headless=new")
+    options.add_argument("--headless=new")
     driver = webdriver.Chrome(options=options,service=Service())
     driver=webdriver.Chrome(options=options,
                             service=Service(ChromeDriverManager().install()),

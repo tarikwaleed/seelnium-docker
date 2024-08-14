@@ -16,7 +16,7 @@ RUN pip install -r req.txt --progress-bar off
 RUN apt-get update
 RUN apt-get install -y wget unzip 
 RUN wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb 
-RUN apt install -y •/google-chrome-stable_current_amd64. deb --allow-insecure-repositories 
+RUN apt install -y •/google-chrome-stable_current_amd64.deb 
 RUN rm google-chrome-stable_current_amd64.deb
 RUN apt-get clean
 

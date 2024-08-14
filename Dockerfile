@@ -7,16 +7,19 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # Turns off buffering for easier container logging
 ENV PYTHONUNBUFFERED=1
 
-COPY Pipfile Pipfile.lock ./
+# COPY Pipfile Pipfile.lock ./
+COPY requirements.txt
 RUN python -m pip install --upgrade  pip --progress-bar off
-RUN pip install --progress-bar off pipenv && pipenv install --dev  --progress-bar off
-
-WORKDIR /app
-COPY . /app
+# RUN pip install --progress-bar off pipenv && pipenv install --dev  --progress-bar off
+RUN pip install -r requirements.txt --progress-bar off
 
 RUN apt-get update && apt-get install -y wget unzip && \
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
     apt install -y •/google-chrome-stable_current_amd64. deb && \
     rm google-chrome-stable_current_amd64.deb && \
     apt-get clean
+
+WORKDIR /app
+COPY . /app
+
 CMD ["python","main.py"]

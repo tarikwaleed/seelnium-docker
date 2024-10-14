@@ -23,11 +23,16 @@ def initialize_driver():
 
 def main():
     driver = initialize_driver()
-    driver.get('https://www.neuralnine.com/books')
+    # driver.get('https://www.neuralnine.com/books')
+    driver.get('https://elcinema.com/seasonals/')
     soup=BeautifulSoup(driver.page_source,features='lxml')
-    headings=soup.find_all(name='h2',attrs={'class':'elementor-heading-title'})
-    for h in headings:
-        print(h.getText())
+    # headings=soup.find_all(name='h2',attrs={'class':'elementor-heading-title'})
+    # for h in headings:
+    #     print(h.getText())
+    movie_titles = soup.find_all('a', href=True)
+    
+    for title in movie_titles:
+        print(title.get_text(strip=True))
     time.sleep(10)
     driver.quit()
 
